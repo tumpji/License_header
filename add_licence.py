@@ -89,10 +89,10 @@ def try_to_remove_license (path):
 
 def add_license (path):
     with open(path, 'r+') as file:
-        content = f.read()
-        f.seek(0,0)
-        f.write(licence_header)
-        f.write(content)
+        content = file.read()
+        file.seek(0,0)
+        file.write(licence_header)
+        file.write(content)
 
 
 
@@ -119,6 +119,7 @@ for filepath in generator():
                 print("Invalid option")
 
     if add_to_this_file:
-        print( "ADDING" )
+        print( "ADDING {}".format(filepath) )
+        add_license(filepath)
 
 
